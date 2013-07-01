@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = ViewBag.LoginHeader;
+}
+
+@section styles {
+    <link href="~/Content/themes/adminia-admin-1.1/css/pages/login.css" rel="stylesheet" />
+}
+
+<div id="login-container">
+    
+    <div id="login-header">
+        <h3>@ViewBag.LoginHeader</h3>
+    </div>
+    
+    <div id="login-content" class="clearfix">
+        @RenderBody()
+    </div>
+    
+    @if (IsSectionDefined("LoginExtra"))
+    {
+        <div id="login-extra">
+            @RenderSection("LoginExtra")
+        </div>
+    }
+
+</div>

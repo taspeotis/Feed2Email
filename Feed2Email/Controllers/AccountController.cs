@@ -8,13 +8,14 @@ namespace Feed2Email.Controllers
 {
     public class AccountController : Controller
     {
-        //
-        // GET: /Account/
-
         public ActionResult Login()
         {
             return View();
         }
 
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
     }
 }
