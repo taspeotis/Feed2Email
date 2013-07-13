@@ -1,35 +1,39 @@
-﻿@model dynamic
+﻿@model Feed2Email.Models.Account.LoginViewModel
 
 @{
     ViewBag.LoginHeader = "Login";
 }
   
-<form action="#">
-    <div class="control-group">
-        <label class="control-label" for="username">Username</label>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="control-group">    
+        <label class="control-label" for="Username">Username</label>
         <div class="controls">
-            <input type="text" class="" id="username" placeholder="Username">
+            <input type="text" name="Username" placeholder="Username" value="@Model.Username">
         </div>
     </div>
+    
     <div class="control-group">
-        <label class="control-label" for="password">Password</label>
+        <label class="control-label" for="Password">Password</label>
         <div class="controls">
-            <input type="password" class="" id="password" placeholder="Password">
+            <input type="password" name="Password" placeholder="Password">
         </div>
     </div>
-
+    
     <div id="remember-me" class="pull-left">
-        <input type="checkbox" name="remember" id="remember" />
-        <label id="remember-label" for="remember">Remember Me</label>
+        @Html.CheckBoxFor(m => m.RememberMe)
+        @Html.LabelFor(m => m.RememberMe)
     </div>
-                
+    
     <div class="pull-right">
-        <button type="submit" class="btn btn-warning btn-large">
+        <button type="submit" class="btn btn-inverse">
             Login
         </button>
     </div>
-</form>
-            
+}
+
 @section LoginExtra
 {
     <p>Don't have an account? <a href="@Url.Action("Register")">Register</a>.</p>
