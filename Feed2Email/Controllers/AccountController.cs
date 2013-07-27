@@ -38,5 +38,11 @@ namespace Feed2Email.Controllers
         {
             return View();
         }
+
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }
