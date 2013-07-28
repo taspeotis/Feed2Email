@@ -4,7 +4,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Feed2Email - @ViewBag.Title</title>
-        @Styles.Render("~/Content/css")
         @Styles.Render("~/Content/bootstrap")
         <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
         <link href="~/Content/themes/adminia-admin-1.1/css/adminia-1.1.css" rel="stylesheet" />
@@ -82,6 +81,7 @@
         @RenderBody()
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/bootstrap")
         <script src="~/Scripts/adminia-admin-1.1/Application.js"> </script>
         <script src="~/Scripts/webshims-1.10.10/polyfiller.js"> </script>
