@@ -1,6 +1,27 @@
-﻿@* model *@
+﻿@model Feed2Email.Models.Account.RegisterFormModel
 
 @{
-    ViewBag.LoginHeader = "Login";
+    ViewBag.LoginHeader = "Register";
 }
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Username).Placeholder()
+    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Email).Placeholder()
+    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.Password).Placeholder()
+    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.ConfirmPassword).Placeholder()
+
+    <div class="pull-right">
+        <button type="submit" class="btn btn-inverse">
+            Register
+        </button>
+    </div>
+}
+
+@section LoginExtra
+{
+    <p>Already have an account? <a href="@Url.Action("Login")">Login</a>.</p>
+    <p>Forgot your password? <a href="@Url.Action("ResetPassword")">Reset it</a>.</p>
+}

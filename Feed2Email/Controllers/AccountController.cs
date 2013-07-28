@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Security;
 using Feed2Email.Models.Account;
 
@@ -10,6 +11,7 @@ namespace Feed2Email.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            // Action is redundant if we're already authenticated
             if (Request.IsAuthenticated)
                 return Redirect(FormsAuthentication.DefaultUrl);
 
@@ -19,6 +21,7 @@ namespace Feed2Email.Controllers
         [AllowAnonymous, HttpPost, ValidateAntiForgeryToken]
         public ActionResult Login(LoginEditModel model)
         {
+            // Action is redundant if we're already authenticated
             if (Request.IsAuthenticated)
                 return Redirect(FormsAuthentication.DefaultUrl);
 
@@ -42,7 +45,24 @@ namespace Feed2Email.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            // Action is redundant if we're already authenticated
+            if (Request.IsAuthenticated)
+                return Redirect(FormsAuthentication.DefaultUrl);
+
+            return View(new RegisterFormModel());
+        }
+
+        [AllowAnonymous, HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterFormModel model)
+        {
+            // Action is redundant if we're already authenticated
+            if (Request.IsAuthenticated)
+                return Redirect(FormsAuthentication.DefaultUrl);
+
+            if (!ModelState.IsValid)
+                return View(new RegisterFormModel {Username = model.Username, Email = model.Email});
+
+            throw new NotImplementedException();
         }
     }
 }
