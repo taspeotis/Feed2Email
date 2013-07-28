@@ -62,6 +62,11 @@ namespace Feed2Email.Controllers
             if (!ModelState.IsValid)
                 return View(new RegisterFormModel {Username = model.Username, Email = model.Email});
 
+            // Create user
+
+            // Authenticate user
+
+            // Redirect to default
             throw new NotImplementedException();
         }
     }

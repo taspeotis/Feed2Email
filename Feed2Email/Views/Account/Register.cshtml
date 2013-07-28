@@ -8,15 +8,15 @@
 {
     @Html.AntiForgeryToken()
     
-    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Username).Placeholder()
-    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Email).Placeholder()
-    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.Password).Placeholder()
-    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.ConfirmPassword).Placeholder()
+    @Html.Bootstrap().ValidationSummary(true)
+    
+    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Username).Placeholder("rlivingston").ShowValidationMessage(false)
+    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Email).Placeholder("rlivingston@initech.com").ShowValidationMessage(false).HelpText()
+    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.Password).Placeholder("P@ssw0rd").ShowValidationMessage(false).HelpText()
+    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.ConfirmPassword).Placeholder("P@ssw0rd").ShowValidationMessage(false).HelpText()
 
     <div class="pull-right">
-        <button type="submit" class="btn btn-inverse">
-            Register
-        </button>
+        <button type="submit" class="btn btn-inverse">Register</button>
     </div>
 }
 
