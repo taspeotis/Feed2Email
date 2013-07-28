@@ -435,6 +435,7 @@
     <Content Include="Scripts\webshims-1.10.10\shims\FlashCanvasPro\save.php" />
     <Content Include="Scripts\webshims-1.10.10\shims\FlashCanvas\proxy.php" />
     <Content Include="Scripts\webshims-1.10.10\shims\FlashCanvas\save.php" />
+    <Content Include="Scripts\webshims-1.10.10\shims\jpicker\images\Thumbs.db" />
     <Content Include="Scripts\webshims-1.10.10\shims\styles\config.rb" />
     <Content Include="Scripts\webshims-1.10.10\shims\styles\scss\shim.scss" />
   </ItemGroup>
