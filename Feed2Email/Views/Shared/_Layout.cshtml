@@ -85,6 +85,7 @@
         @Scripts.Render("~/bundles/bootstrap")
         <script src="~/Scripts/adminia-admin-1.1/Application.js"> </script>
         <script src="~/Scripts/webshims-1.10.10/polyfiller.js"> </script>
+        <script> $.webshims.polyfill(); </script>
         @RenderSection("scripts", false)
     </body>
 </html>
