@@ -7,13 +7,37 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    @Html.Bootstrap().ValidationSummary(true)
-    
-    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Username).Placeholder("rlivingston").ShowValidationMessage(false)
-    @Html.Bootstrap().ControlGroup().TextBoxFor(m => m.Email).Placeholder("rlivingston@initech.com").ShowValidationMessage(false).HelpText()
-    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.Password).Placeholder("P@ssw0rd").ShowValidationMessage(false).HelpText()
-    @Html.Bootstrap().ControlGroup().PasswordFor(m => m.ConfirmPassword).Placeholder("P@ssw0rd").ShowValidationMessage(false).HelpText()
+
+    @(Html.Bootstrap()
+          .ValidationSummary(true))
+
+    @(Html.Bootstrap()
+          .ControlGroup()
+          .TextBoxFor(m => m.Username)
+          .Placeholder("rlivingston")
+          .ShowValidationMessage(false)
+          .HelpText("Your username is unique and cannot be changed."))
+
+    @(Html.Bootstrap()
+          .ControlGroup()
+          .TextBoxFor(m => m.Email)
+          .Placeholder("rlivingston@initech.com")
+          .ShowValidationMessage(false)
+          .HelpText("Your feeds' items will be delivered here."))
+
+    @(Html.Bootstrap()
+          .ControlGroup()
+          .PasswordFor(m => m.Password)
+          .Placeholder("P@ssw0rd")
+          .ShowValidationMessage(false)
+          .HelpText("At least eight characters with one lower case letter and one upper case letter. Include a number for good measure."))
+
+    @(Html.Bootstrap()
+          .ControlGroup()
+          .PasswordFor(m => m.ConfirmPassword)
+          .Placeholder("P@ssw0rd")
+          .ShowValidationMessage(false)
+          .HelpText("Be like Santa: check it twice. Gotta find out who typed it wrong."))
 
     <div class="pull-right">
         <button type="submit" class="btn btn-inverse">Register</button>
